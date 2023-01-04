@@ -1,0 +1,46 @@
+module.exports = {
+  extends: [
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "react-app",
+    "plugin:cypress/recommended",
+  ],
+  parser: "babel-eslint",
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    sourceType: "module",
+  },
+  plugins: ["jsx-a11y", "import", "react", "cypress"],
+  rules: {
+    "comma-dangle": ["warn", "only-multiline"],
+    "eol-last": ["warn", "always"],
+    indent: ["error", 4, { SwitchCase: 1 }],
+    "key-spacing": ["error", { align: "value" }],
+    "keyword-spacing": ["error", { before: true }],
+    "jsx-quotes": ["warn", "prefer-double"],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    quotes: ["error", "single", { allowTemplateLiterals: true }],
+    "react-hooks/exhaustive-deps": "off",
+    "react/jsx-first-prop-new-line": ["warn", "multiline"],
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
+    "react/jsx-max-props-per-line": ["warn", { maximum: 3 }],
+    "react/jsx-tag-spacing": [
+      "error",
+      {
+        closingSlash: "never",
+        beforeSelfClosing: "always",
+        afterOpening: "never",
+      },
+    ],
+    "react/jsx-closing-bracket-location": ["warn", "tag-aligned"],
+    "react/prefer-stateless-function": ["error"],
+    "react/self-closing-comp": ["error"],
+    semi: ["warn", "always"],
+    "space-before-blocks": "error",
+  },
+};

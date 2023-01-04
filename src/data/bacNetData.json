@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "groupField": "Group 1",
+    "field1": "ABCD",
+    "field2": "asdfasdf"
+  },
+  {
+    "id": 2,
+    "groupField": "Group 1",
+    "field1": "EFGH",
+    "field2": "asdfg"
+  },
+  {
+    "id": 3,
+    "groupField": "Group 2",
+    "field1": "IJKL",
+    "field2": "asdfkj;l"
+  },
+  {
+    "id": 4,
+    "groupField": "Group 2",
+    "field1": "MNOP",
+    "field2": "kljhlkhg"
+  },
+  {
+    "id": 5,
+    "groupField": "Group 3",
+    "field1": "QRST",
+    "field2": "mvbmbpore"
+  },
+  {
+    "id": 6,
+    "groupField": "Group 3",
+    "field1": "UVWX",
+    "field2": "oiuerwoi"
+  },
+  {
+    "id": 7,
+    "groupField": "Group 4",
+    "field1": "YZ",
+    "field2": "as[poafe"
+  }
+]

@@ -4,45 +4,49 @@ import { process } from "@progress/kendo-data-query";
 import {
   setExpandedState,
   setGroupIds,
-  getGroupIds
+  getGroupIds,
 } from "@progress/kendo-react-data-tools";
 
 const initialFilter = {
   logic: "and",
-  filters: []
+  filters: [],
 };
 
 const initialDataState = {
   take: 10,
   skip: 0,
   filter: initialFilter,
-  group: []
+  group: [
+    {
+      field: "groupField",
+    },
+  ],
 };
+
 
 const processWithGroups = (data, dataState) => {
   const newDataState = process(data, dataState);
   setGroupIds({
     data: newDataState.data,
-    group: dataState.group
+    group: dataState.group,
   });
   return newDataState;
 };
 
 const InventoryGrid = ({ inventoryData, gridColumns }) => {
-  const [collapsedState, setCollapsedState] = useState([]);
+  const [dataState, setDataState] = useState(initialDataState);
   const [resultState, setResultState] = useState(
     processWithGroups(inventoryData, initialDataState)
   );
-  const [gridData, setGridData] = useState(
-    setExpandedState({
-      data: resultState.data,
-      collapsedIds: collapsedState
-    })
-  );
-  const [dataState, setDataState] = useState(initialDataState);
+  const [collapsedState, setCollapsedState] = useState([]);
+
+  const gridData = setExpandedState({
+    data: resultState.data,
+    collapsedIds: collapsedState,
+  });
 
   const onDataStateChange = (e) => {
-    const newDataState = processWithGroups(gridData, e.dataState);
+    const newDataState = processWithGroups(inventoryData, e.dataState);
     setDataState(e.dataState);
     setResultState(newDataState);
   };
@@ -73,7 +77,7 @@ const InventoryGrid = ({ inventoryData, gridColumns }) => {
           key={index}
           reorderable
           field={column.field}
-          title={column.name}
+          title={column.title}
         />
       ))}
     </Grid>
